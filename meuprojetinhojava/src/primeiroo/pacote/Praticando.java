@@ -1,7 +1,16 @@
 package primeiroo.pacote;
 
 public class Praticando {
+	
+	
+	
+    public static final int CONSTANTE_ESTATICA = 10;
 
+    // Constante individual (não static)
+    public int CONSTANTE_INDIVIDUAL = 4;
+
+
+	
 	public static void main(String[] args) {
 		
 		
@@ -14,11 +23,15 @@ public class Praticando {
 		int a = 10;
 		String b = "55";
 		
-		int resul = Integer.valueOf(b);
+		//int resul = Integer.valueOf(b);
 		
-		System.out.println(resul);
-		System.out.println("banana nanana nanana");
-		System.out.println((a + resul));
+		int numero = Praticando.CONSTANTE_ESTATICA;
+		
+		
+		Praticando pre = new Praticando();
+		
+		System.out.println(numero + "," + pre.CONSTANTE_INDIVIDUAL);
+		
 		
 	}
 	
