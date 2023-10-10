@@ -8,8 +8,6 @@ public class Praticando {
 
     // Constante individual (não static)
     public int CONSTANTE_INDIVIDUAL = 4;
-
-
 	
 	public static void main(String[] args) {
 		

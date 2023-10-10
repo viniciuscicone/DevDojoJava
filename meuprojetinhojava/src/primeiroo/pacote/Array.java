@@ -1,14 +1,15 @@
 package primeiroo.pacote;
 
-import java.util.Scanner;
+import java.util.*;
 
-public class Arrays {
+
+public class Array {
 
 	
 	@SuppressWarnings("unused")
 	public static void second(String[] args) {
 		
-		
+		//impressao tradicional
 //		Exemplo 1: Array de inteiros
 		int[] arrayInt = {1, 2, 3, 4, 5};
 		for (int i = 0; i < arrayInt.length; i++) {
@@ -47,7 +48,7 @@ public class Arrays {
 	}
 	
 
-	public static void main(String[] args) {
+	public static void ternario(String[] args) {
 		
 //		Ternario em java
 		
@@ -64,4 +65,26 @@ public class Arrays {
 		 System.out.println("rodando normamente");
 	}
 	
+	public static void main(String[] args) {
+		
+		
+		// Impresao utilizando java utils. linha 83
+		// Este programa criar uma matrix com um valor especificado pelo usuario,
+		// em seguida cada linha e preenchida com um valor especificado pelo usuario 
+		// apos o preenchimento e impresso no terminal o resultado dessa matriz. 
+		
+		System.out.println("Digite o numero da tabela aqui");
+		Scanner sc = new Scanner(System.in);
+		String dado = sc.nextLine();
+		int numero = Integer.valueOf(dado);
+		int[] array = new int[numero];
+		
+		for(int i = 0; i<array.length; i++) {
+			System.out.printf("Digite um numero para adicionado ao index do array "+ i);
+			array[i] = sc.nextInt();
+		}
+		System.out.println(Arrays.toString(array));
+		sc.close();
+	}
+
 }

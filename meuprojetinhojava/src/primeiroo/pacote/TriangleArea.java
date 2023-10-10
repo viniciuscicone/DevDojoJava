@@ -7,6 +7,8 @@ public class TriangleArea {
 	public static void main(String[] args) {
 		
 		
+		// Este programa calcula a area de dois triangulos
+		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		double xA, xB, xC, yA, yB, yC;
