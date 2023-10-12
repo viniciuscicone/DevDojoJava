@@ -1,6 +1,6 @@
 package primeiroo.pacote;
 
-public class estruturasCondicionais {
+public class EstruturasCondicionais {
 
 	    public static void main(String[] args) {
 	    	
