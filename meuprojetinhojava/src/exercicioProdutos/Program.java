@@ -16,7 +16,7 @@ public class Program {
 	
 	public static void main(String[] args) throws ParseException {
 		
-		//Inicio
+		//Inicio  o 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter client data");
 		System.out.println("Name");
