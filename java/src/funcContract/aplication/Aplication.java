@@ -43,6 +43,11 @@ public class Aplication {
             }
         }
 
+        System.out.println();
+        System.out.println("PAYMENTS:");
+        for (FazerContratoPadrao emp : list) {
+            System.out.println(emp.getNome() + " - $ " + "pagamento " + emp.getPagamento());
+        }
 
         sc.close();
     }
