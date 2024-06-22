@@ -21,6 +21,7 @@ public class Order {
 		this.client = client;
 		
 	}
+
 	public Client getClient() {
 		return client;
 	}
