@@ -8,23 +8,22 @@ public class Migrar {
     public static void main(String[] args) {
 
 
-        new MigracaoUsuario().migrar();
+        new ServicoMigracaoUsuario().migrar();
 
     }
 }
 
 
+class ServicoMigracaoUsuario {
 
-
-class MigracaoUsuario {
-
-    interPonteLer<Usuario> reader = new ClassLerFonteA();
-    ponteEscrever<Usuario> escrever = new ClassEscreverBanco();
+    interPonteLer<Usuario> reader = new ClssLerFonteA();
+    ponteEscrever<Usuario> escrever = new ClssEscreverBanco();
 
     void migrar(){
         List<Usuario> users = reader.lerBancoDados();
         List<Usuario> usersArquivo = reader.lerArquivo();
-        escrever.escrever(usersArquivo);
+        escrever.escreverBanco(usersArquivo);
+        escrever.escreverNuvemAWS(users);
     };
 }
 
@@ -43,7 +42,7 @@ interface interPonteLer<T> {
     List<T> lerArquivo();
 }
 
-class ClassLerFonteA implements interPonteLer<Usuario> {
+class ClssLerFonteA implements interPonteLer<Usuario> {
     public List<Usuario> lerBancoDados(){
 
         Usuario user = new Usuario("vinicius", "emailbom");
@@ -60,12 +59,19 @@ class ClassLerFonteA implements interPonteLer<Usuario> {
 }
 
 
-class ClassEscreverBanco implements ponteEscrever<Usuario> {
-    public void escrever(List<Usuario> Usuario){
+
+class ClssEscreverBanco implements ponteEscrever<Usuario> {
+    public void escreverBanco(List<Usuario> Usuario){
         System.out.println("Escrevendo usuario no banco de dados");
+        System.out.println(Usuario);
+    };
+
+    public void escreverNuvemAWS(List<Usuario> Usuario){
+        System.out.println("Escrevendo usuario em cloud");
         System.out.println(Usuario);
     };
 }
 interface ponteEscrever<T> {
-    void escrever(List<T> itens);
+    void escreverBanco(List<T> itens);
+    void escreverNuvemAWS(List<T> itens);
 }
