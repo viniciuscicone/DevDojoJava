@@ -23,7 +23,8 @@ class MigracaoUsuario {
 
     void migrar(){
         List<Usuario> users = reader.lerBancoDados();
-        escrever.escrever(users);
+        List<Usuario> usersArquivo = reader.lerArquivo();
+        escrever.escrever(usersArquivo);
     };
 }
 
@@ -39,6 +40,7 @@ record Usuario(String username, String email) {
 
 interface interPonteLer<T> {
     List<T> lerBancoDados();
+    List<T> lerArquivo();
 }
 
 class ClassLerFonteA implements interPonteLer<Usuario> {
@@ -48,10 +50,7 @@ class ClassLerFonteA implements interPonteLer<Usuario> {
         System.out.println("Lendo usuario de um banco de dados" + user.email() + "__ nome" + user.username());
         return List.of(new Usuario("vinicius", "emailbom"));
     }
-}
 
-
-class lerFonteB {
     public List<Usuario> lerArquivo(){
 
         Usuario user = new Usuario("vinicius", "emailbom");
@@ -59,8 +58,6 @@ class lerFonteB {
         return List.of(new Usuario("jonas", "emailaquigoogle"));
     }
 }
-
-
 
 
 class ClassEscreverBanco implements ponteEscrever<Usuario> {
