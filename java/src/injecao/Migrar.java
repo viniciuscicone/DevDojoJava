@@ -6,35 +6,69 @@ import java.util.List;
 public class Migrar {
     
     public static void main(String[] args) {
+
+
         new MigracaoUsuario().migrar();
+
     }
 }
 
+
+
+
 class MigracaoUsuario {
 
-    FileReader reader = new FileReader();
-    BdWriter writer = new BdWriter();
+    interPonteLer<Usuario> reader = new ClassLerFonteA();
+    ponteEscrever<Usuario> escrever = new ClassEscreverBanco();
 
     void migrar(){
-        List<Usuario> users = reader.returnFile();
-        writer.write(users);
+        List<Usuario> users = reader.lerBancoDados();
+        escrever.escrever(users);
     };
 }
+
+
+
+
 
 record Usuario(String username, String email) {
 
 }
 
-class FileReader {
-    List<Usuario> returnFile(){
-        System.out.print("Lendo usuario de um arquivo");
+
+
+interface interPonteLer<T> {
+    List<T> lerBancoDados();
+}
+
+class ClassLerFonteA implements interPonteLer<Usuario> {
+    public List<Usuario> lerBancoDados(){
+
+        Usuario user = new Usuario("vinicius", "emailbom");
+        System.out.println("Lendo usuario de um banco de dados" + user.email() + "__ nome" + user.username());
         return List.of(new Usuario("vinicius", "emailbom"));
     }
 }
 
-class BdWriter {
-    void write(List<Usuario> Usuario){
-        System.out.print("Lendo usuario da memoria");
-        System.out.print(Usuario);
+
+class lerFonteB {
+    public List<Usuario> lerArquivo(){
+
+        Usuario user = new Usuario("vinicius", "emailbom");
+        System.out.println("Lendo usuario de um aquivo" + user.email() + "__ nome" + user.username());
+        return List.of(new Usuario("jonas", "emailaquigoogle"));
+    }
+}
+
+
+
+
+class ClassEscreverBanco implements ponteEscrever<Usuario> {
+    public void escrever(List<Usuario> Usuario){
+        System.out.println("Escrevendo usuario no banco de dados");
+        System.out.println(Usuario);
     };
+}
+interface ponteEscrever<T> {
+    void escrever(List<T> itens);
 }
