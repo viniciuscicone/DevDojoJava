@@ -1,15 +1,12 @@
 package injecao;
 
 import java.util.List;
-import java.util.logging.Level;
-
 
 public class Migrar {
 
     public static void main(String[] args) {
 
-        new ServicoMigracaoUsuario(new ClssLerFonteA(),
-                new ClssEscreverBanco()).migrar();
+        new ServicoMigracaoUsuario(new ClssLerFonteA(), new ClssEscreverBanco()).migrar();
 
     }
 }
@@ -30,7 +27,6 @@ class ServicoMigracaoUsuario {
         escrever.escreverNuvemAWS(user);
 
     }
-
 
 }
 
@@ -59,6 +55,7 @@ class ClssLerFonteA implements interPonteLer<Usuario> {
         return List.of(new Usuario("jonas", "emailaquigoogle"));
     }
 }
+
 
 
 

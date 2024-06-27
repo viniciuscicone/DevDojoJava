@@ -3,7 +3,9 @@ package injecao.ex;
 public class application {
     public static void main(String[] args) {
 
-        new Pagamento(new Metodo()).metodo.boleto();
+        new Pagamento(new Metodo()).iniciar();
+        new Pagamento(new Metodo()).metodo.pix();
+
     }
 }
 
@@ -16,8 +18,8 @@ class Pagamento {
         this.metodo = metodo;
     }
 
-    public void pagar() {
-        System.out.printf("Iniciando pagamento");
+    public void iniciar() {
+        System.out.println("Iniciando pagamento");
     }
 }
 
@@ -32,11 +34,11 @@ interface Pont<T> {
 class Metodo implements Pont {
 
     public void pix() {
-        System.out.printf("Pagou pelo pix");
+        System.out.println("Pagou pelo pix");
     }
 
     public void boleto() {
-        System.out.printf("Pagou pelo botelo");
+        System.out.println("Pagou pelo botelo");
     }
 
 }
