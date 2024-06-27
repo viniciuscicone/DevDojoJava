@@ -7,9 +7,8 @@ public class Migrar {
 
     public static void main(String[] args) {
 
-
-        new ServicoMigracaoUsuario(new ClssLerFonteA(),new ClssEscreverBanco());
-        new ServicoMigracaoUsuario().migrarAWS();
+        new ServicoMigracaoUsuario(new ClssLerFonteA(),new ClssEscreverBanco()).migrarBanco();
+        new ServicoMigracaoUsuario(new ClssLerFonteA(),new ClssEscreverBanco()).migrarAWS();
     }
 }
 
@@ -82,6 +81,8 @@ class ClssEscreverBanco implements ponteEscrever<Usuario> {
         System.out.println(Usuario);
     };
 }
+
+
 
 interface ponteEscrever<T> {
     void escreverBanco(List<T> itens);
