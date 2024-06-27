@@ -1,14 +1,16 @@
 package injecao;
 
 import java.util.List;
+import java.util.logging.Level;
 
 
 public class Migrar {
 
     public static void main(String[] args) {
 
-        new ServicoMigracaoUsuario(new ClssLerFonteA(),new ClssEscreverBanco()).migrarBanco();
-        new ServicoMigracaoUsuario(new ClssLerFonteA(),new ClssEscreverBanco()).migrarAWS();
+        new ServicoMigracaoUsuario(new ClssLerFonteA(),
+                new ClssEscreverBanco()).migrar();
+
     }
 }
 
@@ -18,29 +20,19 @@ class ServicoMigracaoUsuario {
     interPonteLer<Usuario> ler;
     ponteEscrever<Usuario> escrever;
 
-    public ServicoMigracaoUsuario(interPonteLer<Usuario> ler,ponteEscrever<Usuario> escrever) {
+    public ServicoMigracaoUsuario(interPonteLer ler,ponteEscrever escrever) {
         this.ler = ler;
         this.escrever = escrever;
     }
-    public ServicoMigracaoUsuario() {
+    public void migrar() {
 
-    }
-
-
-    void migrarBanco() {
-         List<Usuario> user = ler.lerArquivo();
-            escrever.escreverBanco(user);
-
-    }
-
-    void migrarAWS() {
         List<Usuario> user = ler.lerBancoDados();
         escrever.escreverNuvemAWS(user);
+
     }
 
+
 }
-
-
 
 
 record Usuario(String username, String email) {
@@ -48,8 +40,8 @@ record Usuario(String username, String email) {
 }
 
 interface interPonteLer<T> {
-    List<T> lerBancoDados();
-    List<T> lerArquivo();
+    public List<T> lerBancoDados();
+    public List<T> lerArquivo();
 }
 
 class ClssLerFonteA implements interPonteLer<Usuario> {
