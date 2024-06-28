@@ -1,4 +1,4 @@
-package injecao.ex;
+package injection.ex;
 
 public class application {
     public static void main(String[] args) {
@@ -32,6 +32,8 @@ interface Pont<T> {
 
 
 class Metodo implements Pont {
+
+    
 
     public void pix() {
         System.out.println("Pagou pelo pix");

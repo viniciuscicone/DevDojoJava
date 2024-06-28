@@ -1,4 +1,4 @@
-package injecao;
+package injection;
 
 import java.util.List;
 
@@ -54,6 +54,10 @@ class ClssLerFonteA implements interPonteLer<Usuario> {
         System.out.println("Lendo usuario de um aquivo" + user.email() + "__ nome" + user.username());
         return List.of(new Usuario("jonas", "emailaquigoogle"));
     }
+
+    public void fazerAlgo() {
+        System.out.printf("Trouxe algo");
+    }
 }
 
 
@@ -69,6 +73,9 @@ class ClssEscreverBanco implements ponteEscrever<Usuario> {
         System.out.println("Escrevendo usuario em cloud");
         System.out.println(Usuario);
     };
+    public void fazerAlgo() {
+        System.out.printf("Trouxe algo");
+    }
 }
 
 
