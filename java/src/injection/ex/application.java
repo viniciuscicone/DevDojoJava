@@ -3,45 +3,43 @@ package injection.ex;
 public class application {
     public static void main(String[] args) {
 
-        new Pagamento(new Metodo()).iniciar();
-        new Pagamento(new Metodo()).metodo.pix();
+        new Pagamento(new MetodoBoleto()).iniciar();
 
     }
 }
-
 
 class Pagamento {
 
-    Metodo metodo;
+    Pont1 metodo1;
 
-    public Pagamento(Metodo metodo) {
-        this.metodo = metodo;
+
+    public Pagamento(Pont1 paga) {
+         this.metodo1 = paga;
+
     }
-
     public void iniciar() {
         System.out.println("Iniciando pagamento");
+        metodo1.pagar();
     }
+
 }
 
 
 
-interface Pont<T> {
-    void pix();
-    void boleto();
+interface Pont1<T> {
+    void pagar();
+
 }
 
 
-class Metodo implements Pont {
-
-
-
-    public void pix() {
+class MetodoPix implements Pont1 {
+    public void pagar() {
         System.out.println("Pagou pelo pix");
     }
-
-    public void boleto() {
-        System.out.println("Pagou pelo botelo");
+}
+class MetodoBoleto implements Pont1 {
+    public void pagar() {
+        System.out.println("Pagou pelo boleto");
     }
-
 }
 

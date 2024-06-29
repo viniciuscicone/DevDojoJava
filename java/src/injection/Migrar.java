@@ -17,7 +17,7 @@ class ServicoMigracaoUsuario {
     interPonteLer<Usuario> ler;
     ponteEscrever<Usuario> escrever;
 
-    public ServicoMigracaoUsuario(interPonteLer ler,ponteEscrever escrever) {
+    public ServicoMigracaoUsuario(interPonteLer<Usuario> ler,ponteEscrever<Usuario> escrever) {
         this.ler = ler;
         this.escrever = escrever;
     }
@@ -56,7 +56,7 @@ class ClssLerFonteA implements interPonteLer<Usuario> {
     }
 
     public void fazerAlgo() {
-        System.out.printf("Trouxe algo");
+        System.out.print("Trouxe algo");
     }
 }
 
@@ -74,7 +74,7 @@ class ClssEscreverBanco implements ponteEscrever<Usuario> {
         System.out.println(Usuario);
     };
     public void fazerAlgo() {
-        System.out.printf("Trouxe algo");
+        System.out.print("Trouxe algo");
     }
 }
 
