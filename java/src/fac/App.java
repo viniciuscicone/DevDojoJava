@@ -12,14 +12,14 @@ public class App {
 
 class Router {
 
-    FazerAlgo d = new FazerAlgo();
+    FazerAlgo d;
 
     public void run() {
 
       
         System.out.println(" INICIO  ");
 
-        System.out.println("nome :  " + d.doSome() +" ");
+        System.out.println("nome :  " + new FazerAlgo(new Usuario()).usuario1.getNome() +" ");
 
         System.out.println(" Fim ");
 
@@ -30,14 +30,11 @@ class Router {
 
 class FazerAlgo {
     
-    Usuario usuario1 = new Usuario();
-    
-    public String doSome() {
+    Usuario usuario1;
 
-        return usuario1.nome;
-        
+    public FazerAlgo(Usuario usuario1) {
+        this.usuario1 = usuario1;
     }
-
 }
 
 

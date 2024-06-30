@@ -12,7 +12,6 @@ class Pagamento {
 
     Pont1 metodo1;
 
-
     public Pagamento(Pont1 paga) {
          this.metodo1 = paga;
 
@@ -25,10 +24,8 @@ class Pagamento {
 }
 
 
-
 interface Pont1<T> {
     void pagar();
-
 }
 
 
