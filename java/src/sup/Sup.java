@@ -1,11 +1,19 @@
 package sup;
 
+import static java.lang.System.*;
+
 public class Sup {
 
     public static void main(String[] args) {
+        try {
+            System.exit(0);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         Pessoa aqui = new Pessoa("reinaldo");
         Ser novo = new Ser();
-        System.out.print(novo.getTipo());
+        out.print(novo.getTipo());
     }
 }
 class Ser {
