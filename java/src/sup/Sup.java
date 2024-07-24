@@ -8,6 +8,7 @@ public class Sup {
         try {
             System.exit(0);
 
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -32,6 +33,16 @@ class Pessoa extends Ser {
     public Pessoa(String nome) {
         super("gato");
         this.nome = nome;
+    }
+    public String getNome() {
+        return nome;
+    }
+}
+
+class mn {
+    private String nome;
+    public mn(String nome) {
+
     }
     public String getNome() {
         return nome;
