@@ -12,6 +12,7 @@ class JdbcClass {
 
         Connection conn = DB.getConnection();
         DB.closeConnection();
+        
     }
 
 }
